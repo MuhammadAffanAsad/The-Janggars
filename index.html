@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/output.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chau+Philomene+One:ital@0;1&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <title>The Janggars</title>
+</head>
+<body>
+  <div id="loadingScreen" class="fixed flex bg-primary h-full w-full top-0 left-0 transition-all">
+    <div class="flex-col m-auto">
+      <img src="src/loading.png" class="mx-auto h-5 aspect-square animate-spin">
+      <p class="font-poppins opacity-80 text-[0.8rem] mt-1 text-white">bentar mas, loading dulu...</p>
+    </div>
+  </div>
+  <!-- Head Title -->
+  <section class="relative flex-col px-7 py-14 bg-primary shadow-md shadow-[rgba(0,0,0,0.3)]">
+    <h2 class="text-center font-chau text-white text-2xl">MEMORY OF</h2>
+    <div class="flex gap-1.5 w-fit mx-auto">
+      <h1 class="font-chau text-white text-7xl">THE</h1>
+      <img src="src/kamera.png" class="w-[4.7rem] -m-1 h-full">
+    </div>
+    <h1 class="font-chau w-fit text-white text-7xl mx-auto">JANGGARS</h1>
+    <p class="font-poppins text-center mx-auto opacity-80 text-[0.8rem] max-w-[30%] min-w-[17rem] md:max-w-[25%] text-white mt-2">
+      Beberapa siswa SMAN 22 Palembang, bukan yang terbaik, tapi selalu berusaha untuk jadi lebih baik.
+    </p>
+    <div class="absolute border-b-dashed border-b-white w-full border-b-8 border-dashed right-0 bottom-3"></div>
+  </section>
+  
+  <!-- Photo Galery -->
+  <section class="px-7 py-24">
+    <h2 class="text-center font-chau text-primary text-2xl">PHOTO GALERY</h2>
+    <p class="text-center font-poppins text-primary opacity-70">tekan gambar untuk full size</p>
+    <div id="galery" class="columns-2 md:columns-4 mt-14 gap-2"></div>
+  </section>
+  
+  <!-- Big Photo -->
+  <div id="bigPh" class="big-ph-hiden">
+    <img src="" class="m-auto w-full h-auto landscape:w-auto landscape:h-full rounded-md">
+  </div>
+  
+  <!-- Fun Game -->
+  <section class="flex-col px-7 py-24">
+    <div class="w-full mx-auto max-w-[400px] p-4 bg-primary rounded-xl shadow-md shadow-[rgba(0,0,0,0.3)]">
+      <img src="src/jgrgame.png" class="bg-white w-full mb-4 aspect-[1310/1146] rounded-xl object-cover object-center border-2 border-white shadow-md shadow-[rgba(0,0,0,0.3)]">
+      <h2 class="font-chau text-white text-3xl">JANGGARS MEMORY CARD</h2>
+      <p class="font-poppins opacity-80 text-[0.8rem] mt-1 text-white">
+      Cari pasangan gambar yang sesuai enam pasang foto The Janggars secepat mungkin!
+      </p>
+      <div class="w-full rounded-xl mt-4 bg-white py-3 shadow-md shadow-[rgba(0,0,0,0.3)]">
+        <h2 class="text-center font-chau text-primary text-2xl" onclick="startGame()">START GAME!</h2>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Credit -->
+  <section class="relative flex-col px-7 pt-10 pb-7 bg-primary shadow-xl shadow-[rgba(0,0,0,0.3)]">
+    <div class="absolute border-b-dashed border-b-white w-full border-b-8 border-dashed right-0 top-3"></div>
+    <p class="italic mx-auto text-center md:max-w-[60%] font-poppins opacity-80 text-[0.8rem] mt-1 text-white">
+      "Cuman web simple, kubuat untuk nyimpen foto foto kito pas masih aktif sekolah biar mudah dicari samo dak ilang"<br>~ Asad ~
+    </p>
+  </section>
+  
+  <!-- Game Interface -->
+  <div id="gameInterface" class="fixed flex-col px-5 w-full top-0 left-0 h-full bg-white">
+    <div class="mx-auto w-[60%] md:w-[35%] py-2 bg-primary rounded-b-2xl">
+      <h2 id="timer" class="font-chau text-center text-4xl text-white">0</h2>
+    </div>
+    <div id="board" class="columns-3 md:columns-6 gap-2 w-full md:w-[65%] mx-auto my-7"></div>
+  </div>
+  
+  <div id="gameEnd" class="fixed flex-col p-5 w-full top-0 left-0 h-full backdrop-blur">
+    <div class="w-full md:w-[60%] p-5 mt-[50%] mx-auto md:mt-[10%] bg-white rounded-md shadow-md shadow-[rgba(0,0,0,0.3)]">
+      <h2 class="text-center font-chau text-primary text-2xl"></h2>
+      <p class="text-center font-poppins text-primary opacity-70">mau main lagi?</p>
+      <div class="w-full rounded-xl mt-4 bg-primary py-3 shadow-md shadow-[rgba(0,0,0,0.3)]">
+        <h2 class="text-center font-chau text-white text-2xl" onclick="startGame()">main lagi</h2>
+      </div>
+      <div class="w-full rounded-xl mt-4 bg-primary py-3 shadow-md shadow-[rgba(0,0,0,0.3)]">
+        <h2 class="text-center font-chau text-white text-2xl" onclick="closeGame()">dak ah males</h2>
+      </div>
+    </div>
+  </div>
+  
+  <script src="js/index.js"></script>
+</body>
+</html>
